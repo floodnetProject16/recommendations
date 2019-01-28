@@ -1,0 +1,112 @@
+# Annual maximums {#amax}
+
+## Introduction
+
+In this document I will show how to use `floodnetRfa` to perform at-site 
+frequency analysis using annual maximum discharge. 
+First we will extract the annual maximums from the
+daily discharge data of the Saint-John River at Fort Kent (NB).
+Note that incomplet year with missing observations will be removed.
+In total 88 annual maximums are extracted and showed in a histogram.
+
+```{r, fig.height=5, fig.width=5}
+library(floodnetRfa)
+
+anData <- ExtractAmax(flow ~ date, flowStJohn, tol = 365)
+
+npDens <- density(anData$flow)
+
+hist(anData$flow, 
+     freq = FALSE, 
+     main = '', 
+     xlab = 'Discharge',
+     ylim = c(0, max(npDens$y)))
+
+lines(npDens, col = 2, lwd = 2)
+
+```
+
+In stationary situation, the annual maximums are assumed to be independant and 
+identically distributed.
+Risk is then measure in terms of return period that characterizes the 
+average time separating two events of the same magnitude.
+In practice this is equivalent to calculate the probability $p = 1-1/T$ of a 
+fitted distribution.
+The test of Mann-Kendall is frequently performed to verify if the data contains 
+a significant trend that would invalidate the assumption of stationarity. 
+The present data have a p-value of 0.21, which does not suggest the present of 
+a trend.
+
+```{r amax-mkendall, fig.height=5, fig.width=7, fig.cap='Trend in the annual maximums'}
+
+plot(flow~date, anData)
+MKendall(anData$flow)
+```
+
+## Estimation of the flood quantiles
+
+According to extreme value theory, as the number of annual maximums increase, 
+their distribution converge to Generalized Extreme Value (GEV) distribution
+
+\begin{equation}
+F(x) = \exp\left\{ - \left[ 1 - \kappa \left(\frac{x-\xi}{\alpha} \right) \right]^{1/\kappa} \right\}
+(\#eq:amax-gevcdf)
+\end{equation}
+
+The GEV distribution in Equation \@ref(eq:amax-gevcdf) can be fitted using the `FitAmax` function. 
+The example below shows how the parameter are estimated using the
+maximum likelihood method. 
+See for instance [@coles_introduction_2001].
+A brief summary of the fitted model is reported, including the estimated parameter,
+their standard deviation and the sample L-moments.
+
+```{r}
+fit <- FitAmax(anData$flow, 'gev', method = 'mle')
+
+print(fit)
+```
+
+The flood quantile of the GEV distribution can be obtained from the formula 
+
+$$
+x_T = \mu + \frac{\alpha}{\xi}\left[ 1+\log(1/T)^\kappa \right] .
+$$
+These predicted value are computed using the `predict` function.
+In the example below show the flood quantile for return period 2, 5, 10, 20, 50 
+and 100. 
+The standard deviation of the flood quantiles is estimated using the Delta 
+method that assume that the estimated parameter follow a Normal distribution. 
+
+```{r}
+yhat <- predict(fit, se = TRUE, ci = 'delta')
+```
+
+```{r amax-yhat, echo = FALSE}
+knitr::kable(yhat, caption = 'Predicted return levels')
+```
+
+
+## Verification of the model
+
+The return level plot in \@ref(fig:amax-gevreturnlevel) provide a visual 
+assessment of the fitted distribution by comparing the sample and 
+the predicted flood quantiles.
+The graphic below shows a good agreement between the two. 
+
+```{r amax-gevreturnlevel, fig.height= 5,fig.width=7,  fig.cap = 'Return level plot for Saint-John River at Fort Kent, NB.'}
+plot(fit, ci = TRUE)
+```
+
+Another diagnostic to ensure that the GEV distribution is appropriate is the
+Anderson-Darling test. The p-value superior to 0.05 indicates that the 
+hypothesis of a GEV cannot be rejected.
+
+```{r important-computing, cache=TRUE}
+## Time consuming when estimated by 'mle'
+GofTest(fit, nsim = 500)
+```
+
+
+
+
+

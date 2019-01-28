@@ -1,10 +1,63 @@
-@Book{xie2015,
-  title = {Dynamic Documents with {R} and knitr},
-  author = {Yihui Xie},
-  publisher = {Chapman and Hall/CRC},
-  address = {Boca Raton, Florida},
-  year = {2015},
-  edition = {2nd},
-  note = {ISBN 978-1498716963},
-  url = {http://yihui.name/knitr/},
+
+@book{coles_introduction_2001,
+	title = {An introduction to statistical modeling of extreme values},
+	publisher = {Springer Verlag},
+	author = {Coles, S.},
+	year = {2001}
+}
+
+@book{hosking_regional_1997,
+	title = {Regional frequency analysis: an approach based on {L}-moments},
+	publisher = {Cambridge Univ Pr},
+	author = {Hosking, J.R.M. and Wallis, J.R.},
+	year = {1997},
+	file = {Hosking and Wallis - 1997 - Regional frequency analysis an approach based on .pdf:C\:\\Users\\mdurocher\\Documents\\zotero\\storage\\ILPPK3NC\\Hosking and Wallis - 1997 - Regional frequency analysis an approach based on .pdf:application/pdf}
+}
+
+@article{durocher_comparison_2018,
+	title = {Comparison of automatic procedures for selecting flood peaks over threshold based on goodness-of-fit tests},
+	volume = {0},
+	copyright = {© 2018 John Wiley \& Sons, Ltd.},
+	issn = {1099-1085},
+	url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/hyp.13223},
+	doi = {10.1002/hyp.13223},
+	abstract = {In comparison with the traditional analysis of annual maximums, the peaks over threshold method provides many advantages when performing flood frequency analysis and trend analysis. However, the choice of the threshold remains an important question without definite answers and common visual diagnostic tools are difficult to reproduce on a large scale. This study investigates the behaviour of some automatic methods for threshold selection based on the generalized Pareto model for flood peak exceedances of the threshold and the Anderson–Darling test for fitting this model. In particular, the choice of a critical significance level to define an interval of acceptable values is addressed. First, automatic methods are investigated using a simulation study to assess fitting and prediction performance in a controlled environment. It is shown that P values approximated by an existing table of critical values can speed up computation without affecting the quality of the outcomes. Second, a case study compares automatically and manually selected thresholds for 285 sites across Canada by flood regime and super regions based on site characteristics. Correspondences are examined in terms of prediction of flood quantiles and trend analysis. Results show that trend detection is sensitive to the threshold selection method when studying the evolution of the number of peaks per year. Finally, a hybrid method is developed to combine automatic methods and is calibrated on the basis of super regions. The outcomes of the hybrid method are shown to more closely reproduce the estimates of the manually selected thresholds while reducing the model uncertainty.},
+	language = {en},
+	number = {0},
+	urldate = {2018-08-07},
+	journal = {Hydrological Processes},
+	author = {Durocher, Martin and Zadeh, Shabnam Mostofi and Burn, Donald H. and Ashkar, Fahim},
+	year = {2018},
+	keywords = {trend, floods, peak over threshold, Anderson–Darling test},
+	file = {Durocher et al. - Comparison of automatic procedures for selecting f.pdf:C\:\\Users\\mdurocher\\Documents\\zotero\\storage\\AAFMKW2H\\Durocher et al. - Comparison of automatic procedures for selecting f.pdf:application/pdf}
+}
+
+@article{durocher_estimating_2018,
+	title = {Estimating flood quantiles at ungauged sites using nonparametric regression methods with spatial components},
+	url = {https://eartharxiv.org/cfvqg/},
+	doi = {10.31223/osf.io/cfvqg},
+	abstract = {Prediction of flood quantiles at ungauged sites has been investigated using several nonparametric regression methods including: local regression based on regions of influence, neural networks and generalized additive models (GAM). These methods were used to describe the relationship between run-off variables and catchment descriptors to predict flood quantiles. Previous work reported the presence of spatial correlation in the residuals for these models. To this end, this study proposes and investigates ways of incorporating spatial components. An L-moments regression technique (LRT) is developed to predict L-moments of target sites and flood quantiles are derived by aggregating quantiles from multiple candidate distributions. The predictive power of the proposed methods is evaluated on a large database of Canadian rivers using cross-validation. The results are examined inside different provinces and hydrological regions to assess the behaviour of the methods. The results show that GAM and local regression using respectively thin plate spline and kriging provide the best predictive powers among the considered methods. Additionally, the LRT method is found to improve prediction power over the well-known index-flood model and has similar results to quantile regression techniques (QRT) when using the same nonparametric regression approaches.},
+	urldate = {2018-09-25},
+	journal = {EarthArXiv},
+	author = {Durocher, Martin and Burn, Donald H. and Zadeh, Shabnam Mostofi and Ashkar, Fahim},
+	month = sep,
+	year = {2018},
+	file = {Durocher et al. - 2018 - Estimating flood quantiles at ungauged sites using.pdf:C\:\\Users\\mdurocher\\Documents\\zotero\\storage\\TANEF6Z9\\Durocher et al. - 2018 - Estimating flood quantiles at ungauged sites using.pdf:application/pdf}
+}
+
+@article{durocher_nationwide_2018,
+	title = {A nationwide regional flood frequency analysis at ungauged sites using {ROI}/{GLS} with copulas and super regions},
+	volume = {567},
+	issn = {0022-1694},
+	url = {http://www.sciencedirect.com/science/article/pii/S0022169418307728},
+	doi = {10.1016/j.jhydrol.2018.10.011},
+	abstract = {Region of influence is a common approach to estimate runoff information at ungauged locations. To estimate flood quantiles from annual maximum discharges, the Generalized Least Squares (GLS) framework has been recommended to account for unequal sampling variance and intersite correlation, which requires a proper evaluation of the sampling covariance structure. Since some jurisdictions do not have clear guidelines to perform this evaluation, a general procedure using copulas and a nonparametric intersite correlation model is investigated to estimate sampling covariance structure in situations where no common at-site distribution is imposed or when some paired sites do not have common periods of record. The investigated methodology is applied on 771 sites in Canada. The Normal copula is verified to be an adequate model that better fit paired observations than other types of extreme copulas. A sensitivity analysis is carried out to evaluate the impact of either ignoring, or considering a simpler form of, intersite correlation. Additionally, super regions are defined based on drainage area and mean annual precipitation to improve the calibration of pooling groups across large territories and a wide range of climate conditions. Performance criteria based on cross-validation revealed that using super regions and a combination of geographic distance and similarity between catchment descriptors improves the calibration of the pooling groups by providing more accurate estimates.},
+	urldate = {2019-01-08},
+	journal = {Journal of Hydrology},
+	author = {Durocher, Martin and Burn, Donald H. and Mostofi Zadeh, Shabnam},
+	month = dec,
+	year = {2018},
+	keywords = {Canada, Regional frequency analysis, Floods, Generalized least squares, Region of influence, Ungauged},
+	pages = {191--202},
+	file = {Durocher et al. - 2018 - A nationwide regional flood frequency analysis at .pdf:C\:\\Users\\mdurocher\\Documents\\zotero\\storage\\53IJFI4Z\\Durocher et al. - 2018 - A nationwide regional flood frequency analysis at .pdf:application/pdf}
 }

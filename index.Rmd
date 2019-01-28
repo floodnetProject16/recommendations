@@ -1,15 +1,21 @@
 --- 
-title: "A Minimal Book Example"
+title: "Recommendations from Floodnet Project 1-6"
 author: "Martin Durocher"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Test"
 ---
 
-# Welcomes
+# Welcome
 
-Hello World
+**IN CONSTRUCTION**
+
+A description of the objectives of the Floodnet Project can be found at the 
+[Floodnet webpage](http://www.nsercfloodnet.ca/)
+
+PDF and EPUB versions of this book can be downloaded from the 
+[GitHub repository](https://github.com/floodnetProject16/recommendations/tree/master/docs)
