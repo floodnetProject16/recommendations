@@ -1,0 +1,15 @@
+--- 
+title: "A Minimal Book Example"
+author: "Martin Durocher"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Test"
+---
+
+# Welcomes
+
+Hello World
