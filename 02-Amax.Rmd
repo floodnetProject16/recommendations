@@ -9,7 +9,7 @@ daily discharge data of the Saint-John River at Fort Kent (NB).
 Note that incomplet year with missing observations will be removed.
 In total 88 annual maximums are extracted and showed in a histogram.
 
-```{r, fig.height=5, fig.width=5}
+```{r, fig.height=4, fig.width=4}
 library(floodnetRfa)
 
 anData <- ExtractAmax(flow ~ date, flowStJohn, tol = 365)
@@ -37,7 +37,7 @@ a significant trend that would invalidate the assumption of stationarity.
 The present data have a p-value of 0.21, which does not suggest the present of 
 a trend.
 
-```{r amax-mkendall, fig.height=5, fig.width=7, fig.cap='Trend in the annual maximums'}
+```{r amax-mkendall, fig.height=4, fig.width=6, fig.cap='Trend in the annual maximums'}
 
 plot(flow~date, anData)
 MKendall(anData$flow)
@@ -93,7 +93,7 @@ assessment of the fitted distribution by comparing the sample and
 the predicted flood quantiles.
 The graphic below shows a good agreement between the two. 
 
-```{r amax-gevreturnlevel, fig.height= 5,fig.width=7,  fig.cap = 'Return level plot for Saint-John River at Fort Kent, NB.'}
+```{r amax-gevreturnlevel, fig.height= 4,fig.width=6,  fig.cap = 'Return level plot for Saint-John River at Fort Kent, NB.'}
 plot(fit, ci = TRUE)
 ```
 

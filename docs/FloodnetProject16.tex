@@ -159,7 +159,7 @@ A description of the objectives of the Floodnet Project can be found at
 the \href{http://www.nsercfloodnet.ca/}{Floodnet webpage}
 
 PDF and EPUB versions of this book can be downloaded from the
-\href{https://github.com/floodnetProject16/recommendations/tree/master/docs}{github
+\href{https://github.com/floodnetProject16/recommendations/tree/master/docs}{GitHub
 repository}
 
 \hypertarget{amax}{%
@@ -292,19 +292,32 @@ parameter follow a Normal distribution.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{predict}\NormalTok{(fit, }\DataTypeTok{se =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{ci =} \StringTok{'delta'}\NormalTok{)}
+\NormalTok{yhat <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(fit, }\DataTypeTok{se =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{ci =} \StringTok{'delta'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-##       pred        se    lower    upper
-## 1 2339.216  82.44124 2177.634 2500.798
-## 2 2989.156  99.81724 2793.518 3184.794
-## 3 3356.637 117.79148 3125.770 3587.504
-## 4 3668.464 144.52611 3385.198 3951.730
-## 5 4020.327 193.47341 3641.126 4399.528
-## 6 4250.404 238.46296 3783.025 4717.783
-\end{verbatim}
+\begin{table}
+
+\caption{\label{tab:amax-yhat}Predicted return levels}
+\centering
+\begin{tabular}[t]{r|r|r|r}
+\hline
+pred & se & lower & upper\\
+\hline
+2339.216 & 82.44124 & 2177.634 & 2500.798\\
+\hline
+2989.156 & 99.81724 & 2793.518 & 3184.794\\
+\hline
+3356.637 & 117.79148 & 3125.770 & 3587.504\\
+\hline
+3668.464 & 144.52611 & 3385.198 & 3951.730\\
+\hline
+4020.327 & 193.47341 & 3641.126 & 4399.528\\
+\hline
+4250.404 & 238.46296 & 3783.025 & 4717.783\\
+\hline
+\end{tabular}
+\end{table}
 
 \hypertarget{verification-of-the-model}{%
 \section{Verification of the model}\label{verification-of-the-model}}
@@ -347,86 +360,6 @@ the hypothesis of a GEV cannot be rejected.
 ## statistic : 0.266 
 ## p-value : 0.602
 \end{verbatim}
-
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
-
-You can label chapter and section titles using \texttt{\{\#label\}}
-after them, e.g., we can reference Chapter \ref{intro}. If you do not
-manually label them, there will be automatic labels anyway, e.g.,
-Chapter \ref{methods}.
-
-Figures and tables with captions will be placed in \texttt{figure} and
-\texttt{table} environments, respectively.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\FloatTok{.1}\NormalTok{, }\FloatTok{.1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{FloodnetProject16_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:}
-prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
-reference tables generated from \texttt{knitr::kable()}, e.g., see Table
-\ref{tab:nice-tab}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-You can write citations, too. For example, we are using the
-\textbf{bookdown} package \citep{R-bookdown} in this sample book, which
-was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
 
 \bibliography{book.bib}
 
